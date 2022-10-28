@@ -1,4 +1,5 @@
-import {RepositoriesActionEnum} from "./actionsTypes";
+import {Action} from "../action";
+import {ActionType} from "../action-types";
 
 interface RepositoriesState {
     loading: boolean;
@@ -6,30 +7,23 @@ interface RepositoriesState {
     error: string | null;
 }
 
-interface SearchRepositoriesAction {
-    type: RepositoriesActionEnum.SEARCH_REPOSITORIES;
+const initialStore = {
+    loading: false,
+    data: [],
+    error: null
 }
 
-interface SearchRepositoriesSuccessAction {
-    type: RepositoriesActionEnum.SEARCH_REPOSITORIES_SUCCESS;
-    payload: string[];
-}
-
-interface SearchRepositoriesFailedAction {
-    type: RepositoriesActionEnum.SEARCH_REPOSITORIES_FAILED;
-    payload: string;
-}
 
 const repositoriesReducer = (
-    state: RepositoriesState,
-    action: SearchRepositoriesAction | SearchRepositoriesSuccessAction | SearchRepositoriesFailedAction
+    state: RepositoriesState = initialStore,
+    action: Action
 ): RepositoriesState => {
     switch (action.type) {
-        case RepositoriesActionEnum.SEARCH_REPOSITORIES:
+        case ActionType.SEARCH_REPOSITORIES:
             return {loading: true, data: [], error: null};
-        case RepositoriesActionEnum.SEARCH_REPOSITORIES_SUCCESS:
+        case ActionType.SEARCH_REPOSITORIES_SUCCESS:
             return {loading: false, data: action.payload, error: null};
-        case RepositoriesActionEnum.SEARCH_REPOSITORIES_FAILED:
+        case ActionType.SEARCH_REPOSITORIES_FAILED:
             return {loading: false, data: [], error: action.payload};
         default:
             return state;
