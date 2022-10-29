@@ -1,13 +1,9 @@
-import React, {ReactElement} from "react";
-import { Provider } from "react-redux";
-import {store} from "../state";
+import React, {ReactElement} from 'react';
 
-const App:React.FC = (): ReactElement => {
-    return <Provider store={store}>
-        <div>
-            <h1>Search npm Repositories</h1>
-        </div>
-    </Provider>
+const App : React.FC = () : ReactElement => {
+    return <>
+    <h1>Hi there!!!</h1>
+    </>
 }
 
 export default App;
