@@ -6,12 +6,12 @@ interface SearchRepositories{
 
 interface SearchRepositoriesSuccess{
     type: ActionType.SearchRepositoriesSuccess;
-    data: string[]
+    payload: string[]
 }
 
 interface SearchRepositoriesFailed{
     type: ActionType.SearchRepositoriesFailed;
-    data: string | null;
+    payload: string | null;
 }
 
 export type Action = SearchRepositories | SearchRepositoriesFailed | SearchRepositoriesSuccess;
