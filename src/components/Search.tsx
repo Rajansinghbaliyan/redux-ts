@@ -16,7 +16,7 @@ const Search: React.FC = (): ReactElement => {
     const listData = useSelector((state: RootState) => state.serachRepositories);
 
     useEffect(() => {
-        console.log(listData)
+        console.log(listData);
     }, [listData])
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
