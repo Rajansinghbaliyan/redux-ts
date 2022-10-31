@@ -1,11 +1,11 @@
-import {Dispatch} from "react";
-import {Action} from "../action";
 import {ActionType} from "../action-type";
 import axios from "axios";
 import {RepositoriesResponse} from "../../types";
 import {SEARCH_API} from "../../constants";
+import {AppDispatch} from "../store";
+import {Action, Dispatch} from "redux";
 
-const searchRepositories = (term: string, size: number) => async (dispatch: Dispatch<Action>) => {
+export const searchRepositories = (term: string, size: number) => async (dispatch: Dispatch<Action>) => {
     dispatch({type: ActionType.SearchRepositories});
     try {
         const response = await axios.get<RepositoriesResponse>(SEARCH_API, {
@@ -22,4 +22,3 @@ const searchRepositories = (term: string, size: number) => async (dispatch: Disp
     }
 }
 
-export default searchRepositories;

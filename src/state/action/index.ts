@@ -1,15 +1,16 @@
 import {ActionType} from "../action-type";
+import {AnyAction} from "redux";
 
-interface SearchRepositories{
+interface SearchRepositories extends AnyAction{
     type: ActionType.SearchRepositories;
 }
 
-interface SearchRepositoriesSuccess{
+interface SearchRepositoriesSuccess extends AnyAction{
     type: ActionType.SearchRepositoriesSuccess;
     payload: string[]
 }
 
-interface SearchRepositoriesFailed{
+interface SearchRepositoriesFailed extends AnyAction{
     type: ActionType.SearchRepositoriesFailed;
     payload: string | null;
 }
