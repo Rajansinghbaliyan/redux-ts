@@ -12,6 +12,7 @@ const Search: React.FC = (): ReactElement => {
     const [size, setSize] = useState(0);
 
     const dispatch = useDispatch();
+    const {searchRepositories} =  useActions(dispatch);
 
     const listData = useSelector((state: RootState) => state.serachRepositories);
 
@@ -32,14 +33,14 @@ const Search: React.FC = (): ReactElement => {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
         event.preventDefault();
         setInput("");
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const {searchRepositories} =  useActions(dispatch);
         searchRepositories(input, size);
     }
 
     return <>
         <Input type={"text"} input={input} handleChange={handleChange}/>
+        <br/>
         <Input type={"number"} input={size} handleChange={handleSizeChange}/>
+        <br/>
         <Button text={"Search"} handleOnClick={handleClick}/>
         <Content text={input} listData={listData.data}/>
     </>
