@@ -1,8 +1,10 @@
 import React, {ReactElement} from 'react';
+import Search from "./Search";
 
-const App : React.FC = () : ReactElement => {
+const App: React.FC = (): ReactElement => {
     return <>
-    <h1>Hi there!!!</h1>
+        <h1>Hi there!!!</h1>
+        <Search/>
     </>
 }
 
